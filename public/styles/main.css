@@ -1,0 +1,12 @@
+.input-group-text {
+    cursor: pointer;
+    color: rgb(227, 47, 107);
+}
+
+button {
+    background-color: rgb(203, 48, 99) !important;
+    border: none !important;
+    .bi-eye-slash {
+        display: none;
+    }
+}

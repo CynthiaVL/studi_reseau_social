@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{error.messageKey}}
+        </div>
+    {% endif %}
+    {#
+    {{form_start(form)}}
+        {{form_rest(form)}}
+            <button type="submit" class="btn btn-primary mt-3">Connexion</button>
+    #}
+    <form method="post">
+        <label for="username" class="form-label">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="_username" value="{{last_username}}" class="form-control" required/>
+        <label for="password" class="form-label">Mot de passe :</label>
+        <div class='input-group'>
+            <input type="password" id="password" name="_password" class="form-control" required/>
+            <a class='input-group-text' onclick='togglePassword()' type='button' id='togglePassword'>
+                <i class="bi bi-eye-slash d-none" id="eyeSlash"></i>
+                <i class="bi bi-eye" id="eye"></i>
+            </a>
+        </div>
+        {#Pour lancer une redirection après la connection réussie#}
+        <input type='hidden' name='_target_path' value="/"/>
+
+        <button type="submit" class="btn btn-primary mt-3">Connexion</button>
+    </form>
+
+    <a href="/user/new" class="btn btn-link">Vous n'avez pas de compte?</a>
+
+{% endblock %}
